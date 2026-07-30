@@ -1,18 +1,15 @@
 package Spring.Sistema_Caps.demo.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import java.time.LocalDateTime;
 
-@Getter
-@Setter
-public class AplicacaoRequestDTO {
+import java.time.LocalDate;
 
-    private Long pacienteId;
-    private Long profissionalId;
-    private Long medicamentoId;
+public record AplicacaoRequestDTO (
 
-    private LocalDateTime dataAplicacao;
-    private Integer qtdAplicada;
-    private String obs;
-}
+     Long pacienteId,
+     Long profissionalId,
+     Long medicamentoId,
+
+     LocalDate dataAplicacao,
+     Integer qtdAplicada,
+     String obs
+){}

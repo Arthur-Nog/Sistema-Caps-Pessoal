@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tb_Aplicacao")
@@ -19,15 +19,16 @@ public class Aplicacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
-    private Paciente paciente;
+    private Paciente pacienteAplicado;
 
     @ManyToOne
     private Profissional profissional;
     @ManyToOne
     private Medicamento medicamento;
 
-    private LocalDateTime dataAplicacao;
+    private LocalDate dataAplicacao;
     private Integer qtdAplicada;
     private String obs;
 }

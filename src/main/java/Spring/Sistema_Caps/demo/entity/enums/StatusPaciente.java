@@ -1,4 +1,4 @@
-package Spring.Sistema_Caps.demo.model.enums;
+package Spring.Sistema_Caps.demo.entity.enums;
 
 public enum StatusPaciente {
     ATIVO,

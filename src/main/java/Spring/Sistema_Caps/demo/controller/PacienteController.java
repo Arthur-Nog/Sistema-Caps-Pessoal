@@ -2,7 +2,6 @@ package Spring.Sistema_Caps.demo.controller;
 
 import Spring.Sistema_Caps.demo.dto.PacienteRequestDTO;
 import Spring.Sistema_Caps.demo.dto.PacienteResponseDTO;
-import Spring.Sistema_Caps.demo.entity.Paciente;
 import Spring.Sistema_Caps.demo.service.PacienteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

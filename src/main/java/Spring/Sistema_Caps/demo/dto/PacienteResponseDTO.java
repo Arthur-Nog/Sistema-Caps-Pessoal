@@ -1,17 +1,17 @@
 package Spring.Sistema_Caps.demo.dto;
 
 
-import Spring.Sistema_Caps.demo.model.enums.StatusPaciente;
+import Spring.Sistema_Caps.demo.entity.enums.StatusPaciente;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 public record PacienteResponseDTO(
 
         Long id,
         String nome,
         StatusPaciente status,
         String endereco,
-        String idade,
+        Integer idade,
         String cns,
         String cpf,
         String contato,

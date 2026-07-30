@@ -1,9 +1,11 @@
 package Spring.Sistema_Caps.demo.dto;
 
+import Spring.Sistema_Caps.demo.entity.enums.TipoProfissional;
+
 public record ProfissionalResponseDTO (
 
      Long id,
-     String tipoProfissional,
+     TipoProfissional tipoProfissional,
      String cadastroRegional,
      String nome,
      String endereco,

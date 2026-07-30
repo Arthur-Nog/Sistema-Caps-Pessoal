@@ -1,15 +1,11 @@
 package Spring.Sistema_Caps.demo.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+public record MedicamentoResponseDTO (
 
-@Getter
-@Setter
-public class MedicamentoResponseDTO {
-
-    private Long id;
-    private String nomeMedicamento;
-    private String principioAtivo;
-    private String dosagem;
-    private Integer quantidadeInEstoque;
-}
+     Long id,
+     String nomeMedicamento,
+     String principioAtivo,
+     String dosagem,
+     Integer quantidadeInEstoque
+)
+{}

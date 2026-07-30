@@ -2,7 +2,6 @@ package Spring.Sistema_Caps.demo.controller;
 
 import Spring.Sistema_Caps.demo.dto.AdminRequestDTO;
 import Spring.Sistema_Caps.demo.dto.AdminResponseDTO;
-import Spring.Sistema_Caps.demo.entity.Admin;
 import Spring.Sistema_Caps.demo.service.AdminService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ public class AdminController {
     }
 
 
-    @PostMapping
+    @PostMapping("/cadastro")
     public ResponseEntity<AdminResponseDTO> cadastrarAdmin(@RequestBody AdminRequestDTO dto){
         AdminResponseDTO novoAdmin = adminService.cadastrarAdmin(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoAdmin);

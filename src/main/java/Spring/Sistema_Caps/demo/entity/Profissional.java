@@ -1,5 +1,6 @@
 package Spring.Sistema_Caps.demo.entity;
 
+import Spring.Sistema_Caps.demo.entity.enums.TipoProfissional;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +19,7 @@ public class Profissional {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tipoProfissional;
+    private TipoProfissional tipoProfissional;
     private String cadastroRegional;
     private String nome;
     private String endereco;

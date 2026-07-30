@@ -1,6 +1,6 @@
 package Spring.Sistema_Caps.demo.entity;
 
-import Spring.Sistema_Caps.demo.model.enums.StatusPaciente;
+import Spring.Sistema_Caps.demo.entity.enums.StatusPaciente;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -25,16 +24,20 @@ public class Paciente {
     private StatusPaciente status;
     private String nome;
     private String endereco;
-    private String idade;
+    private Integer idade;
     private String cns;
     private String cpf;
     private String contato;
     private String contatoEmergencia;
     private LocalDate dataNascimento;
     private LocalDate dataAdmissao;
-    @OneToMany
-    private List<Aplicacao> aplicacoes;
     private LocalDate ultimaConsulta;
+
+    @OneToMany(mappedBy = "pacienteAplicado")
+    private List<Aplicacao> aplicacoes;
+
+    @OneToMany(mappedBy = "pacienteConsultado")
+    private List<Consulta> consultas;
 
 
 }

@@ -32,11 +32,9 @@ public class ProfissionalService {
 
         Profissional profissionalSalvo = profissionalRepository.save(profissional);
 
-        ProfissionalResponseDTO response = new ProfissionalResponseDTO(profissionalSalvo.getId(), profissionalSalvo.getTipoProfissional(),
+        return new ProfissionalResponseDTO(profissionalSalvo.getId(), profissionalSalvo.getTipoProfissional(),
                 profissionalSalvo.getCadastroRegional(), profissionalSalvo.getNome(), profissionalSalvo.getEndereco(),
                 profissionalSalvo.getContato(), profissionalSalvo.getCpf(), profissionalSalvo.getLogin());
-
-        return response;
 
     }
     public void removerProfissionalById(Long id){
