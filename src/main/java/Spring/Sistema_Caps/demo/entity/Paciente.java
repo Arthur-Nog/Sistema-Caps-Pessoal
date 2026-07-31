@@ -27,6 +27,7 @@ public class Paciente {
     private Integer idade;
     private String cns;
     private String cpf;
+    private String prontuario;
     private String contato;
     private String contatoEmergencia;
     private LocalDate dataNascimento;

@@ -14,6 +14,7 @@ public record PacienteResponseDTO(
         Integer idade,
         String cns,
         String cpf,
+        String prontuario,
         String contato,
         String contatoEmergencia,
         LocalDate dataNascimento,
