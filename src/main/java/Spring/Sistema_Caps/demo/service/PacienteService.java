@@ -30,6 +30,7 @@ public class PacienteService {
         paciente.setContato(dto.contato());
         paciente.setCns(dto.cns());
         paciente.setCpf(dto.cpf());
+        paciente.setProntuario(dto.prontuario());
         paciente.setDataNascimento(dto.dataNascimento());
         paciente.setEndereco(dto.endereco());
         paciente.setContatoEmergencia(dto.contatoEmergencia());
@@ -39,7 +40,7 @@ public class PacienteService {
         Paciente pacienteSalvo = pacienteRepository.save(paciente);
 
         PacienteResponseDTO response = new PacienteResponseDTO(pacienteSalvo.getId(),pacienteSalvo.getNome(), pacienteSalvo.getStatus(),pacienteSalvo.getEndereco(), pacienteSalvo.getIdade(), pacienteSalvo.getCns(), pacienteSalvo.getCpf(),
-                pacienteSalvo.getContato(), pacienteSalvo.getContatoEmergencia(), pacienteSalvo.getDataNascimento(),
+                pacienteSalvo.getContato(), pacienteSalvo.getContatoEmergencia(), pacienteSalvo.getProntuario(),pacienteSalvo.getDataNascimento(),
                 pacienteSalvo.getUltimaConsulta(),pacienteSalvo.getDataAdmissao());
 
         return response;
@@ -50,7 +51,6 @@ public class PacienteService {
         if(!pacienteRepository.existsById(id)){
             throw new RuntimeException("Paciente não existe na nossa base de dados!");
         }
-
         pacienteRepository.deleteById(id);
     }
 
@@ -67,7 +67,7 @@ public class PacienteService {
 
         for(Paciente p:listaPacientes){
             PacienteResponseDTO dto = new PacienteResponseDTO(p.getId(),p.getNome(),p.getStatus(),p.getEndereco(),p.getIdade(), p.getCns(),
-                    p.getCpf(),p.getContato(),p.getContatoEmergencia(),
+                    p.getCpf(),p.getContato(),p.getContatoEmergencia(),p.getProntuario(),
                     p.getDataNascimento(),p.getUltimaConsulta(),p.getDataAdmissao());
             responseList.add(dto);
         }
@@ -77,11 +77,13 @@ public class PacienteService {
     //ALterar dados
 
     public PacienteResponseDTO alterarPaciente(Long id,PacienteRequestDTO paciente){
+
         Paciente pacienteAntigo = pacienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Paciente não encontrado!"));
         pacienteAntigo.setNome(paciente.nome());
         pacienteAntigo.setStatus(paciente.status());
         pacienteAntigo.setIdade(paciente.idade());
         pacienteAntigo.setCpf(paciente.cpf());
+        pacienteAntigo.setProntuario(paciente.prontuario());
         pacienteAntigo.setCns(paciente.cns());
         pacienteAntigo.setEndereco(paciente.endereco());
         pacienteAntigo.setDataNascimento(paciente.dataNascimento());
@@ -93,14 +95,15 @@ public class PacienteService {
 
         Paciente pacienteAtualizado = pacienteRepository.save(pacienteAntigo);
 
-        PacienteResponseDTO response = new PacienteResponseDTO(pacienteAtualizado.getId(), pacienteAtualizado.getNome(),pacienteAtualizado.getStatus(), pacienteAtualizado.getEndereco(),
+        return new PacienteResponseDTO(pacienteAtualizado.getId(), pacienteAtualizado.getNome(),pacienteAtualizado.getStatus(), pacienteAtualizado.getEndereco(),
                 pacienteAtualizado.getIdade(), pacienteAtualizado.getCns(), pacienteAtualizado.getCpf(), pacienteAtualizado.getContato(),
-                pacienteAtualizado.getContatoEmergencia(), pacienteAtualizado.getDataNascimento(),pacienteAtualizado.getUltimaConsulta(),pacienteAtualizado.getDataAdmissao());
-        return response;
+                pacienteAtualizado.getContatoEmergencia(), pacienteAtualizado.getProntuario(),pacienteAtualizado.getDataNascimento(),pacienteAtualizado.getUltimaConsulta(),pacienteAtualizado.getDataAdmissao());
 
     }
 
     //BUSCAR APLICAÇÕES
+
+
 
 
 

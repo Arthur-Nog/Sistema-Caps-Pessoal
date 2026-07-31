@@ -22,4 +22,5 @@ public class Medicamento {
     private String principioAtivo;
     private String dosagem;
     private Integer quantidadeInEstoque;
+
 }
