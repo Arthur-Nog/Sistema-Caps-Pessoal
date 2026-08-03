@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_Profissionais")
 @NoArgsConstructor
@@ -22,11 +24,13 @@ public class Profissional {
     private TipoProfissional tipoProfissional;
     private String cadastroRegional;
     private String nome;
-    private String endereco;
     private String contato;
     private String cpf;
     private String login;
     private String senha;
+
+    @OneToMany(mappedBy = "profissionalAtendente")
+    private List<Consulta> consultas;
 
 }
 

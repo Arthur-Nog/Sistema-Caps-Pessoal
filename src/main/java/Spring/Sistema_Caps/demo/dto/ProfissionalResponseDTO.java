@@ -8,7 +8,6 @@ public record ProfissionalResponseDTO (
      TipoProfissional tipoProfissional,
      String cadastroRegional,
      String nome,
-     String endereco,
      String contato,
      String cpf,
      String login

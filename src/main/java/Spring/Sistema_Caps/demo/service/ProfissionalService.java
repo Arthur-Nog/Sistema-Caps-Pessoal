@@ -28,12 +28,11 @@ public class ProfissionalService {
         profissional.setCpf(dto.cpf());
         profissional.setLogin(dto.login());
         profissional.setSenha(dto.senha());
-        profissional.setEndereco(dto.endereco());
 
         Profissional profissionalSalvo = profissionalRepository.save(profissional);
 
         return new ProfissionalResponseDTO(profissionalSalvo.getId(), profissionalSalvo.getTipoProfissional(),
-                profissionalSalvo.getCadastroRegional(), profissionalSalvo.getNome(), profissionalSalvo.getEndereco(),
+                profissionalSalvo.getCadastroRegional(), profissionalSalvo.getNome(),
                 profissionalSalvo.getContato(), profissionalSalvo.getCpf(), profissionalSalvo.getLogin());
 
     }
@@ -52,7 +51,7 @@ public class ProfissionalService {
 
         for(Profissional p :listaProfissionais){
             ProfissionalResponseDTO dto =  new ProfissionalResponseDTO(p.getId(),p.getTipoProfissional(),
-                    p.getCadastroRegional(), p.getNome(), p.getEndereco(), p.getContato(), p.getCpf(), p.getLogin());
+                    p.getCadastroRegional(), p.getNome(), p.getContato(), p.getCpf(), p.getLogin());
 
             responseList.add(dto);
         }

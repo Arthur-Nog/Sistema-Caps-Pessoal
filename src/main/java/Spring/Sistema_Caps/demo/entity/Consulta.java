@@ -19,6 +19,7 @@ public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     private Paciente pacienteConsultado;
     @ManyToOne
