@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public record AplicacaoResponseDTO (
 
-        Long id,
-     String nomePaciente,
-     String nomeProfissional,
-     String nomeMedicamento,
+     Long id,
+     String Paciente,
+     String Profissional,
+     String Medicamento,
      LocalDate dataAplicacao,
      Integer qtdAplicada,
      String obs

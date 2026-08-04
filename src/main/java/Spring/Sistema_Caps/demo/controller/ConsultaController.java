@@ -20,7 +20,7 @@ public class ConsultaController {
     }
 
     @PostMapping("/cadastro")
-    public ResponseEntity<ConsultaResponseDTO> cadastrarConsulta(@RequestBody ConsultaRequestDTO dto){
+    public ResponseEntity<ConsultaResponseDTO> registrarConsulta(@RequestBody ConsultaRequestDTO dto){
         ConsultaResponseDTO consultaNova = consultaService.realizarConsulta(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(consultaNova);
     }
