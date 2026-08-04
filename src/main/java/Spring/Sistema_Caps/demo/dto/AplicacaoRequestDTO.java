@@ -5,9 +5,9 @@ import java.time.LocalDate;
 
 public record AplicacaoRequestDTO (
 
-     Long pacienteId,
-     Long profissionalId,
-     Long medicamentoId,
+     String paciente,
+     String profissional,
+     String medicamento,
 
      LocalDate dataAplicacao,
      Integer qtdAplicada,

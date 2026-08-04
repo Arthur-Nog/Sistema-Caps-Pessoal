@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.beans.Transient;
+import java.util.Optional;
 
 @Repository
 public interface MedicamentoRepository extends JpaRepository<Medicamento,Long> {
@@ -18,4 +19,11 @@ public interface MedicamentoRepository extends JpaRepository<Medicamento,Long> {
     @Modifying
     @Query("Update Medicamento m SET m.quantidadeInEstoque = m.quantidadeInEstoque+ :qtd WHERE m.id = :id")
      int incrementarEstoque(@Param("id") Long id, @Param("qtd") Integer qtd);
+
+    @Transactional
+    @Modifying
+    @Query("Update Medicamento m SET m.quantidadeInEstoque = m.quantidadeInEstoque - :qtd WHERE m.id = :id")
+    int decrementarEstoque(@Param("id") Long id, @Param("qtd") Integer qtd);
+
+    Optional<Medicamento> findByNomeMedicamento(String nome);
 }
